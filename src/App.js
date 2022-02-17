@@ -22,6 +22,10 @@ function App() {
     saveToLocalTodos();
   }, [todos, status]);
   // Functions
+  const sortTodos = (list) => {
+    let b = list.sort((a, b) => a.text.localeCompare(b.text));
+    return b;
+  };
   const filterHandler = () => {
     switch (status) {
       case "completed":
@@ -44,7 +48,7 @@ function App() {
       localStorage.setItem("todos", JSON.stringify([]));
     } else {
       let todoFromLocal = localStorage.getItem("todos", JSON.stringify(todos));
-      setTodos(JSON.parse(todoFromLocal));
+      setTodos(sortTodos(JSON.parse(todoFromLocal)));
     }
   };
   return (
