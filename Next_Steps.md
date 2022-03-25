@@ -5,3 +5,4 @@
 - [ ] Add picture of the day
 - [ ] Add a toast for confirmation
 - [ ] Add a button for cloud sync
+- [ ] Add a link button
