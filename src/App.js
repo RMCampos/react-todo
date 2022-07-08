@@ -3,11 +3,13 @@ import './App.css';
 
 // Components
 import Form from './components/Form';
+import Filter from './components/Filter';
 import TodoList from './components/TodoList';
 
 function App() {
 
   // State stuff
+  const [inputTask, setInputTask] = useState("");
   const [inputText, setInputText] = useState("");
   const [todos, setTodos] = useState([]);
   const [status, setStatus] = useState('all');
@@ -65,14 +67,15 @@ function App() {
 
   return (
     <div className="App">
-      <header>
-        <h1>Simple Todo App</h1>
-      </header>
       <Form
         inputText={inputText}
+        setInputText={setInputText}
         todos={todos}
         setTodos={setTodos}
-        setInputText={setInputText}
+        inputTask={inputTask}
+        setInputTask={setInputTask}
+      />
+      <Filter
         setStatus={setStatus}
       />
       <TodoList
